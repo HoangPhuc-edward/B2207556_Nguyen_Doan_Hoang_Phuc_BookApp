@@ -97,42 +97,52 @@ export default {
 </style>
 
 <template>
-    <Form @submit="submitBorrow" :validation-schema="borrowFormSchema">
-        <div class="form-group">
-            <label for="TenDocGia">Tên độc giả</label>
-            <Field name="TenDocGia" type="text" class="form-control" v-model="borrowLocal.TenDocGia" disabled />
-            <ErrorMessage name="TenDocGia" class="error-feedback" />
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Thông Tin Mượn Sách</h4>
+            </div>
+            <div class="card-body">
+                <Form @submit="submitBorrow" :validation-schema="borrowFormSchema">
+                    <div class="form-group mb-3">
+                        <label for="TenDocGia" class="form-label">Tên độc giả</label>
+                        <Field name="TenDocGia" type="text" class="form-control" v-model="borrowLocal.TenDocGia"
+                            disabled />
+                        <ErrorMessage name="TenDocGia" class="text-danger small" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="TenSach" class="form-label">Mã sách</label>
+                        <Field name="TenSach" type="text" class="form-control" v-model="borrowLocal.TenSach" />
+                        <ErrorMessage name="TenSach" class="text-danger small" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="TenNVMuon" class="form-label">Mã nhân viên mượn</label>
+                        <Field name="TenNVMuon" type="text" class="form-control" v-model="borrowLocal.TenNVMuon" />
+                        <ErrorMessage name="TenNVMuon" class="text-danger small" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="NgayMuon" class="form-label">Ngày mượn</label>
+                        <Field name="NgayMuon" type="date" class="form-control" v-model="borrowLocal.NgayMuon" />
+                        <ErrorMessage name="NgayMuon" class="text-danger small" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="NgayPhaiTra" class="form-label">Ngày phải trả</label>
+                        <Field name="NgayPhaiTra" type="date" class="form-control" v-model="borrowLocal.NgayPhaiTra" />
+                        <ErrorMessage name="NgayPhaiTra" class="text-danger small" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="NgayTra" class="form-label">Ngày trả</label>
+                        <Field name="NgayTra" type="date" class="form-control" v-model="borrowLocal.NgayTra" />
+                        <ErrorMessage name="NgayTra" class="text-danger small" />
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-primary">Sửa</button>
+                        <button type="button" class="btn btn-danger" style="margin-left: 10px;" @click="cancel">
+                            Thoát
+                        </button>
+                    </div>
+                </Form>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="TenSach">Mã sách</label>
-            <Field name="TenSach" type="text" class="form-control" v-model="borrowLocal.TenSach" />
-            <ErrorMessage name="TenSach" class="error-feedback" />
-        </div>
-        <div class="form-group">
-            <label for="TenNVMuon">Mã nhân viên mượn</label>
-            <Field name="TenNVMuon" type="text" class="form-control" v-model="borrowLocal.TenNVMuon" />
-            <ErrorMessage name="TenNVMuon" class="error-feedback" />
-        </div>
-        <div class="form-group">
-            <label for="NgayMuon">Ngày mượn</label>
-            <Field name="NgayMuon" type="date" class="form-control" v-model="borrowLocal.NgayMuon" />
-            <ErrorMessage name="NgayMuon" class="error-feedback" />
-        </div>
-        <div class="form-group">
-            <label for="NgayPhaiTra">Ngày phải trả</label>
-            <Field name="NgayPhaiTra" type="date" class="form-control" v-model="borrowLocal.NgayPhaiTra" />
-            <ErrorMessage name="NgayPhaiTra" class="error-feedback" />
-        </div>
-        <div class="form-group">
-            <label for="NgayTra">Ngày trả</label>
-            <Field name="NgayTra" type="date" class="form-control" v-model="borrowLocal.NgayTra" />
-            <ErrorMessage name="NgayTra" class="error-feedback" />
-        </div>
-        <div class="form-group">
-            <button class="btn btn-primary">Sửa</button>
-            <button type="button" class="ml-2 btn btn-danger" @click="cancel">
-                Thoát
-            </button>
-        </div>
-    </Form>
+    </div>
 </template>

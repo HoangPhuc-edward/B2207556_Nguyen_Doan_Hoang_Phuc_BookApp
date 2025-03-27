@@ -43,6 +43,16 @@ export default {
         setType(type) {
             this.type = type;
         },
+        async deleteBorrow(id) {
+            const val = confirm('Bạn có chắc chắn muốn hủy mượn sách này?')
+            if (!val) return;
+            try {
+                await borrowService.delete(id);
+                this.borrows = this.borrows.filter(borrow => borrow._id !== id);
+            } catch (error) {
+                console.log(error);
+            }
+        },
     },
     async mounted() {
         this.user = await authService.getProfile();
@@ -85,6 +95,9 @@ export default {
                     <p><i class="fas fa-calendar-alt"></i> Ngày mượn: {{ borrow.NgayMuon }}</p>
                     <p><i class="fas fa-calendar-check"></i> Ngày trả: {{ borrow.NgayTra }}</p>
                     <p><i class="fas fa-calendar-times"></i> Ngày phải trả: {{ borrow.NgayPhaiTra }}</p>
+                    <div>
+                        <button @click="deleteBorrow(borrow._id)" class="btn btn-danger">Hủy mượn sách</button>
+                    </div>
                 </div>
             </li>
         </ul>
