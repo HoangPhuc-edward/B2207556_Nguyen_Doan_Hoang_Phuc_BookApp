@@ -46,7 +46,7 @@ export default {
                 <div class="book-info">
                     <h3>{{ book.TenSach }}</h3>
                     <p><strong>Tác giả:</strong> {{ book.TacGia }}</p>
-                    <p><strong>Số quyển:</strong> {{ book.SoQuyen }}</p>
+                    <p><strong>Số quyển:</strong> {{ book.SoLuong }}</p>
                 </div>
             </div>
         </div>

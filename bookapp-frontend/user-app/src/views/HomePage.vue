@@ -26,10 +26,12 @@ export default {
             try {
                 const newBooks = await bookService.getAll();
                 for (let i = 0; i < newBooks.length; i++) {
-                    newBooks[i].SoLuong = getBookNumber(newBooks[i]);
+                    newBooks[i].SoLuong = await getBookNumber(newBooks[i]);
+
                 }
+
                 this.books = newBooks;
-                this.filteredBooks = newBooks; // Initialize filteredBooks with all books
+                this.filteredBooks = newBooks;
 
             } catch (error) {
                 console.log(error);

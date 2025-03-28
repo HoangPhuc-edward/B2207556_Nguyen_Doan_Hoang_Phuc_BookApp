@@ -9,7 +9,7 @@ export default {
     data() {
         return {
             currentPage: 1,
-            itemsPerPage: 5, // Number of books per page
+            itemsPerPage: 5,
         };
     },
     computed: {
